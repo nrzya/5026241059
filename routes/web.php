@@ -70,4 +70,10 @@ Route::get('/blog/tentang', [BlogController::class,'tentang']);
 Route::get('/blog/kontak', [BlogController::class,'kontak']);
 
 //pegawaidb
-Route::get('/pegawai', [Pegawaidbcontroller::class, 'index2']);
+Route::get('/pegawai', [PegawaiDBcontroller::class, 'index2']);
+Route::get('/pegawai/tambah', [PegawaiDBcontroller::class, 'tambah']);
+Route::post('/pegawai/store', [PegawaiDBcontroller::class, 'store']);
+Route::get('/pegawai/edit/{id}', [PegawaiDBcontroller::class, 'edit']);
+Route::post('/pegawai/update', [PegawaiDBcontroller::class, 'update']);
+Route::get('/pegawai/hapus/{id}', [PegawaiDBcontroller::class, 'hapus']);
+Route::get('/pegawai/cari', [PegawaiDBcontroller::class, 'cari']);
