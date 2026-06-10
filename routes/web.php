@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Pegawaidbcontroller;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SepatuController;
+use App\Http\Controllers\NilaiKuliahController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -95,3 +96,8 @@ Route::post('/sepatu', [SepatuController::class, 'store'])->name('sepatu.store')
 Route::get('/sepatu/{kodesepatu}/edit', [SepatuController::class, 'edit'])->name('sepatu.edit');
 Route::put('/sepatu/{kodesepatu}', [SepatuController::class, 'update'])->name('sepatu.update');
 Route::delete('/sepatu/{kodesepatu}', [SepatuController::class, 'destroy'])->name('sepatu.destroy');
+
+//nilaikuliah latihan EAS E5
+Route::get('/nilaikuliah', [NilaiKuliahController::class, 'index'])->name('nilaikuliah.index');
+Route::get('/nilaikuliah/create', [NilaiKuliahController::class, 'create'])->name('nilaikuliah.create');
+Route::post('/nilaikuliah', [NilaiKuliahController::class, 'store'])->name('nilaikuliah.store');
