@@ -8,6 +8,7 @@ use App\Http\Controllers\Pegawaidbcontroller;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SepatuController;
 use App\Http\Controllers\NilaiKuliahController;
+use App\Http\Controllers\KeranjangBelanjaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -101,3 +102,9 @@ Route::delete('/sepatu/{kodesepatu}', [SepatuController::class, 'destroy'])->nam
 Route::get('/nilaikuliah', [NilaiKuliahController::class, 'index'])->name('nilaikuliah.index');
 Route::get('/nilaikuliah/create', [NilaiKuliahController::class, 'create'])->name('nilaikuliah.create');
 Route::post('/nilaikuliah', [NilaiKuliahController::class, 'store'])->name('nilaikuliah.store');
+
+// Route CRUD Keranjang Belanja Kode B4
+Route::get('/keranjang', [KeranjangBelanjaController::class, 'index'])->name('keranjang.index');
+Route::get('/keranjang/beli', [KeranjangBelanjaController::class, 'create'])->name('keranjang.create');
+Route::post('/keranjang', [KeranjangBelanjaController::class, 'store'])->name('keranjang.store');
+Route::delete('/keranjang/{id}', [KeranjangBelanjaController::class, 'destroy'])->name('keranjang.destroy');

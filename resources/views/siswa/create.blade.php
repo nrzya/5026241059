@@ -1,3 +1,4 @@
+// edited untuk commit ulang SIAP EAS sudah commit pertemuan 14
 @extends('template')
 @section('title', 'Data Siswa')
 @section('konten')
@@ -114,3 +115,5 @@
         }
     </script>
 @endsection
+
+
