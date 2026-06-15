@@ -1,52 +1,31 @@
 @extends('template')
-@section('title', 'Data Pegawai')
+@section('title', 'EAS Kode Soal mypegawai')
 @section('konten')
 
     <h2>Kode Soal mypegawai</h2>
 
-    @if ($errors->any())
-        <ul style="color: red;">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+    <h3>Detail Data Pegawai</h3>
 
-            <form action="{{ route('mypegawai.show', $mypegawai->kodepegawai) }}" method="GET" onsubmit="return validasiForm()">
-            @csrf
-            @method('PUT')
+    <p>
+        <label>Kode Pegawai</label><br>
+        <input type="text" value="{{ $mypegawai->kodepegawai }}" readonly>
+    </p>
 
-            <div class="mb-3">
-                <label class="form-label">kodepegawai (Read Only)</label>
-                <input type="text" class="form-control" value="{{ $mypegawai->kodepegawai }}" readonly>
-            </div>
+    <p>
+        <label>Nama Lengkap</label><br>
+        <input type="text" value="{{ $mypegawai->namalengkap }}" readonly>
+    </p>
 
-            <div class="mb-3">
-                <label class="form-label">namalengkap (Read Only)</label>
-                <input type="text" name="namalengkap" id="namalengkap" class="form-control" maxlength="30" value="{{ old('namalengkap', $mypegawai->namalengkap) readonly}}">
-            </div>
+    <p>
+        <label>Divisi</label><br>
+        <input type="text" value="{{ $mypegawai->divisi }}" readonly>
+    </p>
 
-            <div class="mb-3">
-                <label class="form-label">Divisi (Read Only)</label>
-                <input type="text" name="divisi" id="divisi" class="form-control" value="{{ old('divisi', $mypegawai->divisi) readonly}}">
-            </div>
+    <p>
+        <label>Departemen</label><br>
+        <input type="text" value="{{ $mypegawai->departemen}}" readonly>
+    </p>
 
-              <div class="mb-3">
-                <label class="form-label">departemen (Read Only)</label>
-                <input type="text" name="departemen" id="departemen" class="form-control" value="{{ old('departemen', $mypegawai->departemen) readonly}}">
-            </div>
+    <a href="{{ route('mypegawai.index') }}">Kembali</a>
 
-            <button type="submit" class="btn btn-primary">Done</button>
-            <a href="{{ route('mypegawai.show') }}" class="btn btn-secondary">Kembali</a>
-        </form>
-    </div>
-
-    <script>
-       function validasiForm() {
-            let kodepagawai = document.getElementById('kodepegawai').value.trim();
-            let namalengkap = document.getElementById('namalengkap').value.trim();
-            let divisi = document.getElementById('divisi').value.trim();
-            let departemen = document.getElementById('departemen').value;
-        }
-    </script>
 @endsection

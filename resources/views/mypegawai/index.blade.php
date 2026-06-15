@@ -1,5 +1,5 @@
 @extends('template')
-@section('title', 'My Pegawai')
+@section('title', 'EAS Kode Soal mypegawai')
 @section('konten')
 
     <h2>Kode Soal mypegawai</h2>
