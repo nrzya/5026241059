@@ -9,6 +9,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SepatuController;
 use App\Http\Controllers\NilaiKuliahController;
 use App\Http\Controllers\KeranjangBelanjaController;
+use App\Http\Controllers\MyPegawaiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -108,3 +109,13 @@ Route::get('/keranjang', [KeranjangBelanjaController::class, 'index'])->name('ke
 Route::get('/keranjang/beli', [KeranjangBelanjaController::class, 'create'])->name('keranjang.create');
 Route::post('/keranjang', [KeranjangBelanjaController::class, 'store'])->name('keranjang.store');
 Route::delete('/keranjang/{id}', [KeranjangBelanjaController::class, 'destroy'])->name('keranjang.destroy');
+
+//Route latihan eas versi sendiri, buku
+Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
+Route::post('/buku/pinjam/{id}', [BukuController::class, 'pinjam'])->name('buku.pinjam');
+
+//Route EAS
+Route::get('/mypegawai', [MyPegawaiController::class, 'index'])->name('mypegawai.index');
+Route::get('/mypegawai/create', [MyPegawaiController::class, 'create'])->name('mypegawai.create');
+Route::post('/mypegawai', [MyPegawaiController::class, 'store'])->name('mypegawai.store');
+Route::get('/mypegawai/show/{kodepegawai}', [MyPegawaiController::class, 'show'])->name('mypegawai.show');
